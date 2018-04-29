@@ -1,5 +1,5 @@
 .catalog:
-  name: "Galera DB"
+  name: "Galera Cluster"
   version: 10.2.14-rancher1
   description: |
     Galera Cluster based on MariaDB 10.2.14
@@ -28,7 +28,7 @@
       type: string
       required: true
 
-    - variable: "host_label"
+    - variable: "HOST_LABEL"
       label: "Host Galera Label"
       description: "Set to true to force host to have a galera label"
       required: true

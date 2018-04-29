@@ -33,7 +33,7 @@ galera-leader-forwarder:
 galera:
   image: rancher/galera-conf:v0.2.0
   labels:
-    {{- if eq .Values.host_label "true" }}
+    {{- if eq .Values.HOST_LABEL "true" }}
     io.rancher.scheduler.affinity:host_label: galera=true
     {{- end}}
     io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
@@ -50,7 +50,7 @@ galera-lb:
   - 3306:3307/tcp
   tty: true
   image: rancher/load-balancer-service
-  {{- if eq host_label "true" }}host_label
+  {{- if eq .Values.HOST_LABEL "true" }}
   labels:
     io.rancher.scheduler.affinity:host_label: galera=true
   {{- end}}
