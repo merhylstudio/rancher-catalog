@@ -26,12 +26,12 @@ mariadb-galera-data:
   labels:
     io.rancher.container.start_once: true
 galera-leader-forwarder:
-  image: merhylstudio/galera-leader-proxy:v0.0.1
+  image: rancher/galera-leader-proxy:v0.1.0
   net: "container:galera"
   volumes_from:
    - 'mariadb-galera-data'
 galera:
-  image: merhylstudio/galera-conf:v0.0.1
+  image: rancher/galera-conf:v0.2.0
   labels:
     {{- if eq host_label "true" }}host_label
     io.rancher.scheduler.affinity:host_label: galera=true
