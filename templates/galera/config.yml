@@ -1,0 +1,6 @@
+name: MariaDB Galera Cluster
+description: |
+  Synchronous multi-master cluster for MariaDB
+version: 10.2.14-rancher1 # Version of the Catalog to be used
+category: Databases # Category to be used for searching catalog entries
+maintainer: MerhylStudio
