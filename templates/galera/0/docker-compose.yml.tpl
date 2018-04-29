@@ -33,7 +33,7 @@ galera-leader-forwarder:
 galera:
   image: rancher/galera-conf:v0.2.0
   labels:
-    {{- if eq host_label "true" }}host_label
+    {{- if eq .Values.host_label "true" }}
     io.rancher.scheduler.affinity:host_label: galera=true
     {{- end}}
     io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
