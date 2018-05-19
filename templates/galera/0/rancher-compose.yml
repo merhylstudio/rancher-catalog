@@ -14,19 +14,19 @@
       label: "MySQL Database Name"
       description: "MySQL database to create"
       type: string
-      required: true
+      required: false
 
     - variable: "mysql_user"
       label: "MySQL DB User"
       description: "MySQL user for the created database"
       type: string
-      required: true
+      required: false
 
     - variable: "mysql_password"
       label: "MySQL DB Password"
       description: "Password for the MySQL user of the created database"
       type: string
-      required: true
+      required: false
 
     - variable: "HOST_LABEL"
       label: "Host Galera Label"
