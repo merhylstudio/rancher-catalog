@@ -4,15 +4,9 @@ mariadb-galera-server:
   environment:
     TERM: "xterm"
     MYSQL_ROOT_PASSWORD: ${mysql_root_password}
-{{- if .Values.mysql_database }}
     MYSQL_DATABASE: ${mysql_database}
-{{- end }}
-{{- if .Values.mysql_user }}
     MYSQL_USER: ${mysql_user}
-{{- end }}
-{{- if .Values.mysql_password }}
     MYSQL_PASSWORD: ${mysql_password}
-{{- end }}
   volumes_from:
     - 'mariadb-galera-data'
   labels:
