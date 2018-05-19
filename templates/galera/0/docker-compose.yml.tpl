@@ -6,11 +6,13 @@ mariadb-galera-server:
     MYSQL_ROOT_PASSWORD: ${mysql_root_password}
 {{- if .Values.mysql_database }}
     MYSQL_DATABASE: ${mysql_database}
-{{- end}}
-{{- if .Values.mysql_user and .Values.mysql_password }}
+{{- end }}
+{{- if .Values.mysql_user }}
     MYSQL_USER: ${mysql_user}
+{{- end }}
+{{- if .Values.mysql_password }}
     MYSQL_PASSWORD: ${mysql_password}
-{{- end}}
+{{- end }}
   volumes_from:
     - 'mariadb-galera-data'
   labels:
@@ -39,7 +41,7 @@ galera:
   labels:
 {{- if eq .Values.HOST_LABEL "true" }}
     io.rancher.scheduler.affinity:host_label: galera=true
-{{- end}}
+{{- end }}
     io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
